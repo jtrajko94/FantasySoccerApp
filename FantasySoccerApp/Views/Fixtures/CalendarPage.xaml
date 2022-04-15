@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="FantasySoccerApp.Views.Fixtures.CalendarPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:FantasySoccerApp.Controls"
+    xmlns:viewModel="clr-namespace:FantasySoccerApp.ViewModels.Fixtures"
+    Title="Select a Fixture Date"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:syncfusion="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms" 
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="{DynamicResource Gray-White}"
+    NavigationPage.HasNavigationBar="false">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <!--  Binding context for Checkout Page  -->
+    <ContentPage.BindingContext>
+        <viewModel:CalendarViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.ControlTemplate>
+        <ControlTemplate>
+            <StackLayout Spacing="0">
+                <ContentPresenter />
+            </StackLayout>
+        </ControlTemplate>
+    </ContentPage.ControlTemplate>
+
+    <ContentPage.Content>
+        <syncfusion:SfCalendar x:Name="calendar" SelectionMode="SingleSelection" MinDate="{Binding MinDate}" MaxDate="{Binding MaxDate}" TapCommand="{Binding CalendarCellTapped}">
+	<syncfusion:SfCalendar.MonthViewSettings>
+		  <syncfusion:MonthViewSettings HeaderFontFamily="Montserrat-Regular" HeaderFontAttributes="Bold" DateSelectionColor="{DynamicResource AppBlueColor}" TodaySelectionBackgroundColor="{DynamicResource AppGreenColor}"/>                      
+   </syncfusion:SfCalendar.MonthViewSettings>
+</syncfusion:SfCalendar>
+    </ContentPage.Content>
+
+</ContentPage>

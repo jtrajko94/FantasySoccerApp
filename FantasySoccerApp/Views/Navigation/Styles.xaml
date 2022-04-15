@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    x:Class="FantasySoccerApp.Views.Navigation.Styles"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Color x:Key="Transparent">Transparent</Color>
+    
+    <x:String x:Key="SettingsIcon">&#xe72b;</x:String>
+    <x:String x:Key="MoreIcon">&#xe715;</x:String>
+
+</ResourceDictionary>

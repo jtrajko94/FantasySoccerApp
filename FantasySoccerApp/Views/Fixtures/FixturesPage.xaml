@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:helper="clr-namespace:FantasySoccerApp.Helpers"
+             mc:Ignorable="d"
+             xmlns:control="clr-namespace:FantasySoccerApp.Controls"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             x:Name="currentPage"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms" 
+             ios:Page.UseSafeArea="true"
+             x:Class="FantasySoccerApp.Views.Fixtures.FixturesPage"
+             BackgroundColor="{DynamicResource AppBlueColor}"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout>
+        <StackLayout x:Name="TitleView"  Padding="8,8" HeightRequest="48"
+                             BackgroundColor="{DynamicResource AppBlueColor}" Spacing="0"
+                             HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+
+            <StackLayout x:Name="Title" HorizontalOptions="FillAndExpand"  IsVisible="True"
+                            Orientation="Horizontal"  VerticalOptions="FillAndExpand"  Spacing="0">
+
+                <!--   Header Text Title  -->
+                <Label  Margin="16,0" FontFamily="{StaticResource Montserrat-Medium}" FontSize="16"
+                        HorizontalOptions="CenterAndExpand" TextColor="{DynamicResource Gray-White}"
+                        LineHeight="1.25"  Text="March 3rd, 2020 - Fixtures"  VerticalOptions="Center" VerticalTextAlignment="Center" />
+
+            </StackLayout>
+
+            <!--  Calendar Button  -->
+            <buttons:SfButton  x:Name="CalendarButton" IsVisible="True" TextColor="{DynamicResource Gray-White}" Clicked="CalendarButton_Clicked" Style="{StaticResource IconButtonStyle }"
+                                    Text="{StaticResource Calendar}" />
+
+            <DatePicker Date="{Binding FilterDate, Mode=TwoWay}" TextColor="Transparent" x:Name="FixtureDatePicker" Grid.Row="0" Opacity="0.2" IsVisible="False"></DatePicker>
+        </StackLayout>
+        <StackLayout>
+            <Grid RowSpacing="0">
+
+                <StackLayout x:Name="countryStack" Padding="0,3,0,0" BackgroundColor="{DynamicResource Gray-400}">
+                    <ListView
+                    x:Name="CountriesList"
+                    BackgroundColor="{DynamicResource Gray-White}"
+                    IsGroupingEnabled="True"
+                    VerticalOptions="Center"
+                    HasUnevenRows="True"
+                    SeparatorVisibility="None"
+                    IsPullToRefreshEnabled="true"
+                    IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                    ItemsSource="{Binding Items}"
+                    RefreshCommand="{Binding LoadCountriesCommand}"
+                    >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.Height>
+                                        <OnPlatform x:TypeArguments="x:Double" iOS="80" Android="80" />
+                                    </ViewCell.Height>
+                                    <control:CustomShadowFrame
+                                Margin="10"
+                                Padding="0"
+                                BackgroundColor="{DynamicResource Gray-White}"
+                                BorderColor="{DynamicResource Gray-White}"
+                                CornerRadius="4"
+                                HasShadow="False"
+                                HeightRequest="80">
+                                        <Grid ColumnSpacing="0" RowSpacing="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label
+                                            FontFamily="{StaticResource Montserrat-SemiBold}"
+                                            FontSize="10"
+                                            Grid.ColumnSpan="1"
+                                            Grid.Row="1"
+                                            Grid.Column="1"
+                                            Grid.RowSpan="1"
+                                            Text="{Binding HomeTeamName}"
+                                            HorizontalTextAlignment="End"
+                                            VerticalOptions="Center"
+                                            TextColor="{DynamicResource Gray-900}" />
+
+                                            <!--  Country flag -->
+                                            <border:SfBorder
+                                        Grid.ColumnSpan="1"
+                                        Grid.Column="2"
+                                        Grid.Row="1"
+                                        Grid.RowSpan="1"
+                                        Margin="12"
+                                        BorderWidth="0"
+                                        HorizontalOptions="End"
+                                        CornerRadius="24">
+                                                <Image
+                                            BackgroundColor="{DynamicResource Gray-400}"
+                                            HeightRequest="35"
+                                            WidthRequest="35" >
+                                                </Image>
+                                            </border:SfBorder>
+
+                                            <StackLayout
+                                            Grid.Row="1"
+                                            Grid.Column="3"
+                                            Grid.ColumnSpan="1"
+                                            Grid.RowSpan="1"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center"
+                                            Orientation="Vertical"
+                                            Spacing="0">
+                                                <Label
+                                            FontFamily="{StaticResource Montserrat-SemiBold}"
+                                            FontSize="9"
+                                            Text="3/15 2:00 PM"
+                                            VerticalOptions="Center"
+                                            TextColor="{DynamicResource Gray-900}" />
+                                                <Label
+                                            FontFamily="{StaticResource Montserrat-SemiBold}"
+                                            FontSize="12"
+                                            Text="- v -"
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="Center"
+                                            TextColor="{DynamicResource Gray-900}" />
+                                            </StackLayout>
+                                            <!--  Country flag -->
+                                            <border:SfBorder
+                                        Margin="12"
+                                        Grid.Row="1"
+                                        Grid.Column="4"
+                                        Grid.ColumnSpan="1"
+                                        Grid.RowSpan="1"
+                                        BorderWidth="0"
+                                        HorizontalOptions="Start"
+                                        CornerRadius="24">
+                                                <Image
+                                            BackgroundColor="{DynamicResource Gray-400}"
+                                            HeightRequest="35"
+                                            WidthRequest="35" >
+                                                </Image>
+                                            </border:SfBorder>
+                                            <Label
+                                            Grid.Row="1"
+                                            Grid.Column="5"
+                                            Grid.ColumnSpan="1"
+                                            Grid.RowSpan="1"
+                                            FontFamily="{StaticResource Montserrat-SemiBold}"
+                                            FontSize="10"
+                                            Text="{Binding AwayTeamName}"
+                                            HorizontalTextAlignment="Start"
+                                            VerticalOptions="Center"
+                                            TextColor="{DynamicResource Gray-900}" />
+                                            <Grid.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Source={x:Reference currentPage}, Path=BindingContext.FixtureClickCommand}"  NumberOfTapsRequired="1" CommandParameter="{Binding .}"/>
+                                            </Grid.GestureRecognizers>
+                                        </Grid>
+                                    </control:CustomShadowFrame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <ListView.GroupHeaderTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.Height>
+                                        <OnPlatform x:TypeArguments="x:Double" iOS="60" Android="60" />
+                                    </ViewCell.Height>
+                                    <control:CustomShadowFrame
+                            Margin="0"
+                            Padding="0"
+                            BackgroundColor="{DynamicResource AppGreenColor}"
+                            BorderColor="{DynamicResource Gray-White}"
+                            CornerRadius="10"
+                            HasShadow="True"
+                            HeightRequest="60">
+                                        <Grid ColumnSpacing="0" RowSpacing="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <!--  Country flag -->
+                                            <border:SfBorder
+                                    Grid.RowSpan="2"
+                                    Margin="16"
+                                    BorderWidth="0"
+                                    CornerRadius="24"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center">
+                                                <Image
+                                        BackgroundColor="{DynamicResource Gray-200}"
+                                        HeightRequest="26"
+                                        WidthRequest="26" >
+                                                </Image>
+                                            </border:SfBorder>
+
+
+                                            <!--  Customer name and transactiona amount label  -->
+                                            <StackLayout
+                                    Grid.Row="0"
+                                    Grid.RowSpan="2"
+                                    Grid.Column="1"
+                                    Padding="0"
+                                    VerticalOptions="CenterAndExpand"
+                                    helper:RTLHelper.Margin="0,16,16,4"
+                                    Orientation="Horizontal"
+                                    Spacing="0">
+                                                <Label
+                                        FontFamily="{StaticResource Montserrat-SemiBold}"
+                                        FontSize="16"
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="StartAndExpand"
+                                        Text="{Binding Name}"
+                                        TextColor="{DynamicResource Gray-White}" />
+
+                                                <Label
+                                        FontFamily="{StaticResource Montserrat-SemiBold}"
+                                        FontSize="16"
+                                        HorizontalOptions="End"
+                                        HorizontalTextAlignment="End"
+                                        Padding="5"
+                                        FontAttributes="Bold"
+                                        TextColor="{DynamicResource Gray-White}"
+                                        Text="{Binding FixtureCount}" />
+                                                <Image x:Name="ImgA" Source="{Binding StateIcon}"  Margin="0,0,5,0" HeightRequest="10" WidthRequest="10" HorizontalOptions="End"/>
+                                            </StackLayout>
+                                            <Grid.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Source={x:Reference currentPage}, Path=BindingContext.RefreshItemsCommand}"  NumberOfTapsRequired="1" CommandParameter="{Binding .}"/>
+                                            </Grid.GestureRecognizers>
+                                        </Grid>
+                                    </control:CustomShadowFrame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.GroupHeaderTemplate>
+                    </ListView>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

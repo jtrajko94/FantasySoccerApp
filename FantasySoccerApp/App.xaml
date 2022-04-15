@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:themes="clr-namespace:FantasySoccerApp.Themes;assembly=FantasySoccerApp" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms" xmlns:controls="clr-namespace:FantasySoccerApp.Controls" xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms" mc:Ignorable="d" x:Class="FantasySoccerApp.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <themes:LightTheme />
+                <ResourceDictionary Source="Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <ControlTemplate x:Key="BlankTemplate">
+                <StackLayout>
+                    <!-- Header -->
+                    <StackLayout x:Name="TitleView"  Padding="8,8" Grid.Row="1" HeightRequest="48"
+                             BackgroundColor="{DynamicResource AppBlueColor}" Spacing="0"
+                             HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+
+                        <StackLayout x:Name="Title" HorizontalOptions="FillAndExpand"  IsVisible="True"
+                                 Orientation="Horizontal"  VerticalOptions="FillAndExpand"  Spacing="0">
+
+                        <!--   Header Text Title  -->
+                        <Label  Margin="16,0" FontFamily="{StaticResource Montserrat-Medium}" FontSize="16"
+                                HorizontalOptions="CenterAndExpand" TextColor="{DynamicResource Gray-White}"
+                                LineHeight="1.25" Text="{TemplateBinding BindingContext.HeaderText}"  VerticalOptions="Center" VerticalTextAlignment="Center" />
+
+                        </StackLayout>
+                    </StackLayout>
+
+                    <!-- Content -->
+                    <StackLayout>
+                        <ContentPresenter />
+                    </StackLayout>
+                </StackLayout>
+            </ControlTemplate>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:graphics="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms" xmlns:local="clr-namespace:FantasySoccerApp.ViewModels.Settings" xmlns:partials="clr-namespace:FantasySoccerApp.Views.Settings"
+             x:Class="FantasySoccerApp.Views.Settings.BalancePage"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style  TargetType="graphics:SfGradientView" >
+                <Setter Property="BackgroundBrush">
+                    <Setter.Value>
+                        <graphics:SfLinearGradientBrush>
+                            <graphics:SfLinearGradientBrush.GradientStops>
+                                <graphics:SfGradientStop Offset="0" Color="{DynamicResource AppBlueColor}"/>
+                                <graphics:SfGradientStop Offset="1" Color="{DynamicResource AppGreenColor}"/>
+                            </graphics:SfLinearGradientBrush.GradientStops>
+                        </graphics:SfLinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <local:BalanceViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand">
+            <Grid ColumnSpacing="0" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="120"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <graphics:SfGradientView Grid.Row="1" Grid.RowSpan="3" Grid.Column="1" Grid.ColumnSpan="3"/>
+
+                <StackLayout Orientation="Vertical" Grid.Column="1" Grid.RowSpan="1" Grid.ColumnSpan="3" Grid.Row="1" VerticalOptions="CenterAndExpand">
+                    <Label
+                        FontFamily="{StaticResource Montserrat-SemiBold}"
+                        FontSize="25"
+                        Text="{Binding FundsLabel,StringFormat='${0:F2}'}"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Start"
+                        TextColor="{DynamicResource Gray-White}" />
+                    <Label
+                        FontFamily="{StaticResource Montserrat-SemiBold}"
+                        FontSize="14"
+                        Text="Credit Balance"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Start"
+                        TextColor="{DynamicResource Gray-White}" />
+                </StackLayout>
+            </Grid>
+            <tabView:SfTabView BackgroundColor="{DynamicResource Gray-White}" VisibleHeaderCount="3">
+                <tabView:SfTabView.SelectionIndicatorSettings>
+                    <tabView:SelectionIndicatorSettings StrokeThickness="3" Color="{DynamicResource AppGreenColor}" />
+                </tabView:SfTabView.SelectionIndicatorSettings>
+                <tabView:SfTabItem
+                    Title="Add Credits"
+                    SelectionColor="{DynamicResource AppGreenColor}"
+                    TitleFontColor="{DynamicResource Gray-700}"
+                    TitleFontFamily="{StaticResource Montserrat-Medium}"
+                    TitleFontSize="14">
+                    <tabView:SfTabItem.Content>
+                        <!--<partials:AboutView />-->
+                    </tabView:SfTabItem.Content>
+                </tabView:SfTabItem>
+
+                <tabView:SfTabItem
+                    Title="Redeem"
+                    SelectionColor="{DynamicResource AppGreenColor}"
+                    TitleFontColor="{DynamicResource Gray-700}"
+                    TitleFontFamily="{StaticResource Montserrat-Medium}"
+                    TitleFontSize="14">
+                    <tabView:SfTabItem.Content>
+                        <!--<partials:AboutView />-->
+                    </tabView:SfTabItem.Content>
+                </tabView:SfTabItem>
+
+                <tabView:SfTabItem
+                    Title="Transactions"
+                    SelectionColor="{DynamicResource AppGreenColor}"
+                    TitleFontColor="{DynamicResource Gray-700}"
+                    TitleFontFamily="{StaticResource Montserrat-Medium}"
+                    TitleFontSize="14">
+                    <tabView:SfTabItem.Content>
+                        <partials:BalanceTransactionsView />
+                    </tabView:SfTabItem.Content>
+                </tabView:SfTabItem>
+            </tabView:SfTabView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

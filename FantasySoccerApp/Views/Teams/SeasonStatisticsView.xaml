@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+             x:Class="FantasySoccerApp.Views.Teams.SeasonStatisticsView"
+             x:Name="currentPage">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="scoresMarkerTemplate">
+                <Label Text="{Binding Score}" VerticalOptions="Center" FontSize = "10"/>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                    <chart:SfChart HeightRequest="250" HorizontalOptions="StartAndExpand">
+                        <chart:SfChart.Legend>
+                            <chart:ChartLegend OverflowMode="Wrap"/>
+                        </chart:SfChart.Legend>
+                        <chart:SfChart.Title>
+                            <chart:ChartTitle Text="Season Results" TextAlignment="Center" FontSize="16" TextColor="{DynamicResource AppBlueColor}"/>
+                        </chart:SfChart.Title>
+                        <chart:PieSeries ItemsSource ="{Binding OverallResults}" XBindingPath="Key" YBindingPath="Value" CircularCoefficient="0.8">
+                            <chart:PieSeries.ColorModel>
+                                <chart:ChartColorModel Palette="Custom" CustomBrushes="{Binding resultsPieColors}"/>
+                            </chart:PieSeries.ColorModel>
+                            <chart:PieSeries.DataMarker>
+                                <chart:ChartDataMarker LabelContent="Percentage"/>
+                            </chart:PieSeries.DataMarker>
+                        </chart:PieSeries>
+                    </chart:SfChart>
+                    <chart:SfChart HeightRequest="250">
+                        <chart:SfChart.Legend>
+                            <chart:ChartLegend OverflowMode="Wrap"/>
+                        </chart:SfChart.Legend>
+                        <chart:SfChart.Title>
+                            <chart:ChartTitle Text="Season Goals" TextAlignment="Center" FontSize="16" TextColor="{DynamicResource AppBlueColor}"/>
+                        </chart:SfChart.Title>
+                        <chart:PieSeries ItemsSource ="{Binding OverallGoals}" XBindingPath="Key" YBindingPath="Value" CircularCoefficient="0.8">
+                            <chart:PieSeries.ColorModel>
+                                <chart:ChartColorModel Palette="Custom" CustomBrushes="{Binding goalsPieColors}"/>
+                            </chart:PieSeries.ColorModel>
+                            <chart:PieSeries.DataMarker>
+                                <chart:ChartDataMarker LabelContent="Percentage"/>
+                            </chart:PieSeries.DataMarker>
+                        </chart:PieSeries>
+                    </chart:SfChart>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                    <chart:SfChart HeightRequest="250" HorizontalOptions="StartAndExpand">
+                        <chart:SfChart.Legend>
+                            <chart:ChartLegend OverflowMode="Wrap"/>
+                        </chart:SfChart.Legend>
+                        <chart:SfChart.Title>
+                            <chart:ChartTitle Text="Home Results" TextAlignment="Center" FontSize="16" TextColor="{DynamicResource AppBlueColor}"/>
+                        </chart:SfChart.Title>
+                        <chart:PieSeries ItemsSource ="{Binding HomeResults}" XBindingPath="Key" YBindingPath="Value" CircularCoefficient="0.8">
+                            <chart:PieSeries.ColorModel>
+                                <chart:ChartColorModel Palette="Custom" CustomBrushes="{Binding resultsPieColors}"/>
+                            </chart:PieSeries.ColorModel>
+                            <chart:PieSeries.DataMarker>
+                                <chart:ChartDataMarker LabelContent="Percentage"/>
+                            </chart:PieSeries.DataMarker>
+                        </chart:PieSeries>
+                    </chart:SfChart>
+                    <chart:SfChart HeightRequest="250">
+                        <chart:SfChart.Legend>
+                            <chart:ChartLegend OverflowMode="Wrap"/>
+                        </chart:SfChart.Legend>
+                        <chart:SfChart.Title>
+                            <chart:ChartTitle Text="Home Goals" TextAlignment="Center" FontSize="16" TextColor="{DynamicResource AppBlueColor}"/>
+                        </chart:SfChart.Title>
+                        <chart:PieSeries ItemsSource ="{Binding HomeGoals}" XBindingPath="Key" YBindingPath="Value" CircularCoefficient="0.8">
+                            <chart:PieSeries.ColorModel>
+                                <chart:ChartColorModel Palette="Custom" CustomBrushes="{Binding goalsPieColors}"/>
+                            </chart:PieSeries.ColorModel>
+                            <chart:PieSeries.DataMarker>
+                                <chart:ChartDataMarker LabelContent="Percentage"/>
+                            </chart:PieSeries.DataMarker>
+                        </chart:PieSeries>
+                    </chart:SfChart>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                    <chart:SfChart HeightRequest="250" HorizontalOptions="StartAndExpand">
+                        <chart:SfChart.Legend>
+                            <chart:ChartLegend OverflowMode="Wrap"/>
+                        </chart:SfChart.Legend>
+                        <chart:SfChart.Title>
+                            <chart:ChartTitle Text="Away Results" TextAlignment="Center" FontSize="16" TextColor="{DynamicResource AppBlueColor}"/>
+                        </chart:SfChart.Title>
+                        <chart:PieSeries ItemsSource ="{Binding AwayResults}" XBindingPath="Key" YBindingPath="Value" CircularCoefficient="0.8">
+                            <chart:PieSeries.ColorModel>
+                                <chart:ChartColorModel Palette="Custom" CustomBrushes="{Binding resultsPieColors}"/>
+                            </chart:PieSeries.ColorModel>
+                            <chart:PieSeries.DataMarker>
+                                <chart:ChartDataMarker LabelContent="Percentage"/>
+                            </chart:PieSeries.DataMarker>
+                        </chart:PieSeries>
+                    </chart:SfChart>
+                    <chart:SfChart HeightRequest="250">
+                        <chart:SfChart.Legend>
+                            <chart:ChartLegend OverflowMode="Wrap"/>
+                        </chart:SfChart.Legend>
+                        <chart:SfChart.Title>
+                            <chart:ChartTitle Text="Away Goals" TextAlignment="Center" FontSize="16" TextColor="{DynamicResource AppBlueColor}"/>
+                        </chart:SfChart.Title>
+                        <chart:PieSeries ItemsSource ="{Binding AwayGoals}" XBindingPath="Key" YBindingPath="Value" CircularCoefficient="0.8">
+                            <chart:PieSeries.ColorModel>
+                                <chart:ChartColorModel Palette="Custom" CustomBrushes="{Binding goalsPieColors}"/>
+                            </chart:PieSeries.ColorModel>
+                            <chart:PieSeries.DataMarker>
+                                <chart:ChartDataMarker LabelContent="Percentage"/>
+                            </chart:PieSeries.DataMarker>
+                        </chart:PieSeries>
+                    </chart:SfChart>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentView.Content>
+</ContentView>

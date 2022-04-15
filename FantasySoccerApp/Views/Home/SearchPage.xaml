@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:FantasySoccerApp.ViewModels.Home"
+             xmlns:graphics="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
+             x:Class="FantasySoccerApp.Views.Home.SearchPage"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms" xmlns:control="clr-namespace:FantasySoccerApp.Controls" xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms" 
+             ios:Page.UseSafeArea="true"
+             x:Name="currentPage"
+             xmlns:helper="clr-namespace:FantasySoccerApp.Helpers"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.BindingContext>
+        <viewModel:SearchViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style  TargetType="graphics:SfGradientView" >
+                <Setter Property="BackgroundBrush">
+                    <Setter.Value>
+                        <graphics:SfLinearGradientBrush>
+                            <graphics:SfLinearGradientBrush.GradientStops>
+                                <graphics:SfGradientStop Offset="0" Color="{DynamicResource AppBlueColor}"/>
+                                <graphics:SfGradientStop Offset="1" Color="{DynamicResource AppGreenColor}"/>
+                            </graphics:SfLinearGradientBrush.GradientStops>
+                        </graphics:SfLinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <Grid ColumnSpacing="0" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="130"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <graphics:SfGradientView Grid.Row="1" Grid.RowSpan="3" Grid.Column="1" Grid.ColumnSpan="3"/>
+
+                <StackLayout
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="3"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Orientation="Horizontal"
+                        Spacing="10">
+                    <Entry Placeholder="Search Terms"
+                           WidthRequest="180"
+                           FontSize="12"
+                           FontFamily="{StaticResource Montserrat-SemiBold}" />
+
+
+                    <buttons:SfButton
+                        HorizontalOptions="Center"
+                        WidthRequest="100"
+                        CornerRadius="8"
+                        BorderColor="{DynamicResource Gray-White}"
+                        BorderWidth="1"
+                        TextColor="{DynamicResource Gray-White}"
+                        BackgroundColor="{DynamicResource AppBlueColor}"
+                        HeightRequest="25"
+                        Command="{Binding SearchClickCommand}"
+                        FontFamily="{StaticResource Montserrat-SemiBold}"
+                        Text="Search" />
+                </StackLayout>
+            </Grid>
+            <StackLayout
+                x:Name="transactionList"
+                Padding="16"
+                BindableLayout.ItemsSource="{Binding SearchResults}"
+                Spacing="16">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <control:CustomShadowFrame
+                            Margin="0"
+                            Padding="0"
+                            BackgroundColor="{DynamicResource AppBlueColor}"
+                            BorderColor="{DynamicResource Gray-White}"
+                            CornerRadius="4"
+                            HasShadow="True"
+                            HeightRequest="70">
+
+                            <Grid ColumnSpacing="0" RowSpacing="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <!--  Profile image  -->
+                                <border:SfBorder
+                                    Grid.RowSpan="2"
+                                    Margin="16"
+                                    BorderWidth="0"
+                                    CornerRadius="24"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center">
+                                    <Image
+                                        BackgroundColor="{DynamicResource Gray-200}"
+                                        HeightRequest="40"
+                                        WidthRequest="40" >
+                                    </Image>
+                                </border:SfBorder>
+
+                                <!--  Customer name and transactiona amount label  -->
+                                <StackLayout
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    Padding="0"
+                                    helper:RTLHelper.Margin="0,27,27,4"
+                                    Orientation="Horizontal"
+                                    Spacing="0">
+                                    <Label
+                                        FontFamily="{StaticResource Montserrat-SemiBold}"
+                                        FontSize="14"
+                                        VerticalOptions="CenterAndExpand"
+                                        HorizontalOptions="StartAndExpand"
+                                        VerticalTextAlignment="Center"
+                                        Text="{Binding Name}"
+                                        TextColor="{DynamicResource Gray-White}" />
+                                </StackLayout>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={x:Reference currentPage}, Path=BindingContext.SearchResultClickCommand}"  NumberOfTapsRequired="1" CommandParameter="{Binding .}"/>
+                                </Grid.GestureRecognizers>
+                            </Grid>
+                        </control:CustomShadowFrame>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

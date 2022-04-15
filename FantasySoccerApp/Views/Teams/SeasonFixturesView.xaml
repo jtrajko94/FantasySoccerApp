@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FantasySoccerApp.Views.Teams.SeasonFixturesView"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:control="clr-namespace:FantasySoccerApp.Controls"
+             xmlns:extended="clr-namespace:Xamarin.Forms.Extended;assembly=Xamarin.Forms.Extended.InfiniteScrolling"
+             x:Name="currentPage">
+    <ContentView.Content>
+        <StackLayout Orientation="Vertical">
+            <ListView ItemsSource="{Binding Fixtures}" CachingStrategy="RecycleElement" HasUnevenRows="True">
+
+                <ListView.Behaviors>
+                    <extended:InfiniteScrollBehavior IsLoadingMore="{Binding IsBusy}" />
+                </ListView.Behaviors>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.Height>
+                                <OnPlatform x:TypeArguments="x:Double" iOS="80" Android="80" />
+                            </ViewCell.Height>
+                            <control:CustomShadowFrame
+                                Margin="5"
+                                Padding="0"
+                                BackgroundColor="{DynamicResource Gray-White}"
+                                BorderColor="{DynamicResource Gray-White}"
+                                CornerRadius="4"
+                                HasShadow="False"
+                                HeightRequest="80">
+                                <Grid ColumnSpacing="0" RowSpacing="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label
+                                            FontFamily="{StaticResource Montserrat-SemiBold}"
+                                            FontSize="10"
+                                            Grid.ColumnSpan="1"
+                                            Grid.Row="1"
+                                            Grid.Column="1"
+                                            Grid.RowSpan="1"
+                                            Text="{Binding HomeTeamName}"
+                                            HorizontalTextAlignment="End"
+                                            VerticalOptions="Center"
+                                            TextColor="{DynamicResource Gray-900}" />
+
+                                    <!--  Country flag -->
+                                    <border:SfBorder
+                                        Grid.ColumnSpan="1"
+                                        Grid.Column="2"
+                                        Grid.Row="1"
+                                        Grid.RowSpan="1"
+                                        Margin="12"
+                                        BorderWidth="0"
+                                        HorizontalOptions="End"
+                                        CornerRadius="24">
+                                        <Image
+                                            BackgroundColor="{DynamicResource Gray-400}"
+                                            HeightRequest="45"
+                                            WidthRequest="45" >
+                                        </Image>
+                                    </border:SfBorder>
+
+                                    <StackLayout
+                                            Grid.Row="1"
+                                            Grid.Column="3"
+                                            Grid.ColumnSpan="1"
+                                            Grid.RowSpan="1"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center"
+                                            Orientation="Vertical"
+                                            Spacing="0">
+                                        <Label
+                                            FontFamily="{StaticResource Montserrat-SemiBold}"
+                                            FontSize="8"
+                                            HorizontalTextAlignment="Center"
+                                            Text="{Binding DateTime, StringFormat='{}{0:MMMM dd, yyyy h:mm tt}'}"
+                                            VerticalOptions="Center"
+                                            TextColor="{DynamicResource Gray-900}" />
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                            <Label
+                                            FontFamily="{StaticResource Montserrat-SemiBold}"
+                                            FontSize="12"
+                                            Text="{Binding HomeScoreLabel}"
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="Center"
+                                            TextColor="{DynamicResource Gray-900}" />
+                                            <Label
+                                            FontFamily="{StaticResource Montserrat-SemiBold}"
+                                            FontSize="7"
+                                            Text=" v "
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="Center"
+                                            TextColor="{DynamicResource Gray-900}" />
+                                            <Label
+                                            FontFamily="{StaticResource Montserrat-SemiBold}"
+                                            FontSize="12"
+                                            Text="{Binding AwayScoreLabel}"
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="Center"
+                                            TextColor="{DynamicResource Gray-900}" />
+                                        </StackLayout>
+                                        <Label
+                                            FontFamily="{StaticResource Montserrat-SemiBold}"
+                                            FontSize="7"
+                                            HorizontalTextAlignment="Center"
+                                            Text="{Binding Competition}"
+                                            VerticalOptions="Center"
+                                            TextColor="{DynamicResource Gray-900}" />
+                                    </StackLayout>
+                                    <!--  Country flag -->
+                                    <border:SfBorder
+                                        Margin="12"
+                                        Grid.Row="1"
+                                        Grid.Column="4"
+                                        Grid.ColumnSpan="1"
+                                        Grid.RowSpan="1"
+                                        BorderWidth="0"
+                                        HorizontalOptions="Start"
+                                        CornerRadius="24">
+                                        <Image
+                                            BackgroundColor="{DynamicResource Gray-400}"
+                                            HeightRequest="45"
+                                            WidthRequest="45" >
+                                        </Image>
+                                    </border:SfBorder>
+                                    <Label
+                                            Grid.Row="1"
+                                            Grid.Column="5"
+                                            Grid.ColumnSpan="1"
+                                            Grid.RowSpan="1"
+                                            FontFamily="{StaticResource Montserrat-SemiBold}"
+                                            FontSize="10"
+                                            Text="{Binding AwayTeamName}"
+                                            HorizontalTextAlignment="Start"
+                                            VerticalOptions="Center"
+                                            TextColor="{DynamicResource Gray-900}" />
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={x:Reference currentPage}, Path=BindingContext.FixtureClickCommand}"  NumberOfTapsRequired="1" CommandParameter="{Binding .}"/>
+                                    </Grid.GestureRecognizers>
+                                </Grid>
+                            </control:CustomShadowFrame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+                <ListView.Footer>
+                    <Grid Padding="6" IsVisible="{Binding IsBusy}">
+                        <!-- set the footer to have a zero height when invisible -->
+                        <Grid.Triggers>
+                            <Trigger TargetType="Grid" Property="IsVisible" Value="False">
+                                <Setter Property="HeightRequest" Value="0" />
+                            </Trigger>
+                        </Grid.Triggers>
+                        <!-- the loading content -->
+                        <Label Text="Loading More..." Padding="5,0,5,0" TextColor="{DynamicResource AppGreenColor}" FontFamily="{StaticResource Montserrat-SemiBold}" FontSize="12" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center" />
+                    </Grid>
+                </ListView.Footer>
+
+            </ListView>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

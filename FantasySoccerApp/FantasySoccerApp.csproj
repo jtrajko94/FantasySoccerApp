@@ -1,0 +1,96 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="4.6.0.726" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.1.0.46" />
+    <PackageReference Include="Syncfusion.Xamarin.SfTabView" Version="18.1.0.46" />
+    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="18.1.0.48" />
+    <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="18.1.0.46" />
+    <PackageReference Include="Refractored.MvvmHelpers" Version="1.3.0" />
+    <PackageReference Include="Syncfusion.Xamarin.Cards" Version="18.1.0.46" />
+    <PackageReference Include="Syncfusion.Xamarin.SfCalendar" Version="18.1.0.46" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.2" />
+    <PackageReference Include="Xamarin.Forms.Extended.InfiniteScrolling" Version="1.0.0-preview2" />
+    <PackageReference Include="Syncfusion.Xamarin.SfChart" Version="18.1.0.48" />
+    <PackageReference Include="RestSharp" Version="106.11.4" />
+    <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
+    <PackageReference Include="morelinq" Version="3.3.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\AccountAccess\" />
+    <Folder Include="Converters\" />
+    <Folder Include="Controls\" />
+    <Folder Include="ViewModels\AccountAccess\" />
+    <Folder Include="Themes\" />
+    <Folder Include="AppLayout\" />
+    <Folder Include="AppLayout\Controls\" />
+    <Folder Include="Views\Navigation\" />
+    <Folder Include="Views\Settings\" />
+    <Folder Include="Views\Home\" />
+    <Folder Include="ViewModels\Settings\" />
+    <Folder Include="Views\Fixtures\" />
+    <Folder Include="ViewModels\Fixtures\" />
+    <Folder Include="Models\Fixtures\" />
+    <Folder Include="ViewModels\Navigation\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="AppLayout\Views\" />
+    <Folder Include="AppLayout\Models\" />
+    <Folder Include="AppLayout\ViewModels\" />
+    <Folder Include="Views\Teams\" />
+    <Folder Include="ViewModels\Teams\" />
+    <Folder Include="Models\Teams\" />
+    <Folder Include="Behaviors\" />
+    <Folder Include="Models\Home\" />
+    <Folder Include="ViewModels\Home\" />
+    <Folder Include="Views\Individuals\" />
+    <Folder Include="ViewModels\Individuals\" />
+    <Folder Include="Models\Individuals\" />
+    <Folder Include="Views\Leagues\" />
+    <Folder Include="ViewModels\Leagues\" />
+    <Folder Include="Models\Leagues\" />
+    <Folder Include="Views\Drafts\" />
+    <Folder Include="Models\Settings\" />
+    <Folder Include="Utilities\" />
+    <Folder Include="Services\" />
+    <Folder Include="Models\API\" />
+    <Folder Include="Models\API\Accounts\" />
+    <Folder Include="Models\API\Fixtures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Views\Fixtures\DeliveryView %28copy%29.xaml.cs" />
+    <Compile Remove="Views\Fixtures\TeamPlayersView %28copy%29.xaml.cs" />
+    <Compile Remove="Views\Individuals\Styles.xaml.cs" />
+    <Compile Remove="Views\Teams\SeasonFixturesView %28copy%29.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Themes\LightTheme.xaml.cs">
+      <DependentUpon>LightTheme.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Fixtures\Styles.xaml.cs">
+      <DependentUpon>Styles.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Fixtures\FixturesPage.xaml.cs">
+      <DependentUpon>FixturesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="AppLayout\Views\TemplateHostPage.xaml.cs">
+      <DependentUpon>TemplateHostPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="AppLayout\Views\Styles.xaml.cs">
+      <DependentUpon>Styles.xaml</DependentUpon>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Views\Individuals\Styles.xaml.cs">
+      <DependentUpon>Styles.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

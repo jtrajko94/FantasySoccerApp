@@ -1,0 +1,43 @@
+﻿<Properties StartupConfiguration="{0F4BF450-6476-4806-94C1-1EF437162CD9}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/LeaguesController.cs">
+    <Files>
+      <File FileName="Controllers/LeaguesController.cs" Line="1" Column="1" />
+      <File FileName="Controllers/FixturesController.cs" Line="107" Column="46" />
+      <File FileName="Models/SoccerAPI/Fixtures/FixturesResponseModel.cs" Line="12" Column="57" />
+      <File FileName="Models/SoccerAPI/Fixtures/FixtureModel.cs" Line="69" Column="62" />
+      <File FileName="Models/SoccerAPI/Fixtures/FixtureTeamModel.cs" Line="14" Column="41" />
+      <File FileName="Models/SoccerAPI/Fixtures/FixtureScoreModel.cs" Line="20" Column="1" />
+      <File FileName="Models/SoccerAPI/Fixtures/FixtureEventModel.cs" Line="14" Column="9" />
+      <File FileName="Models/SoccerAPI/Fixtures/FixtureLeagueModel.cs" Line="17" Column="41" />
+      <File FileName="Models/SoccerAPI/Fixtures/FixtureLineupModel.cs" Line="24" Column="45" />
+      <File FileName="Models/SoccerAPI/Fixtures/FixtureStartXiModel.cs" Line="24" Column="40" />
+      <File FileName="Utilities/TextMethods.cs" Line="7" Column="9" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="FantasySoccerApp.MobileAppService" expanded="True">
+            <Node name="FantasySoccerApp.MobileAppService" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="LeaguesController.cs" selected="True" />
+              </Node>
+              <Node name="Models" expanded="True">
+                <Node name="SoccerAPI" expanded="True">
+                  <Node name="Fixtures" expanded="True" />
+                </Node>
+              </Node>
+              <Node name="Utilities" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.FantasySoccerApp.MobileAppService PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

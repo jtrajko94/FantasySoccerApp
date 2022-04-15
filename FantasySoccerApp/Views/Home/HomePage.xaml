@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="FantasySoccerApp.Views.Home.HomePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    x:Name="homePage"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
+    NavigationPage.HasNavigationBar="False"
+    BackgroundColor="{DynamicResource AppBlueColor}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary Source="Styles.xaml" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout Orientation="Vertical" BackgroundColor="{DynamicResource Gray-White}">
+        <StackLayout x:Name="TitleView"  Padding="8,8" HeightRequest="48"
+                             BackgroundColor="{DynamicResource AppBlueColor}" Spacing="0"
+                             HorizontalOptions="FillAndExpand" Orientation="Horizontal" VerticalOptions="StartAndExpand">
+
+            <Label  Margin="16,0" FontFamily="{StaticResource Montserrat-Medium}" FontSize="16"
+                        HorizontalOptions="CenterAndExpand" TextColor="{DynamicResource Gray-White}"
+                        LineHeight="1.25"  Text="First Touch Fantasy"  VerticalOptions="Center" VerticalTextAlignment="Center" />
+
+            <!--  Search Button  -->
+            <buttons:SfButton  x:Name="CalendarButton" IsVisible="True" TextColor="{DynamicResource Gray-White}" Clicked="SearchButton_Clicked" Style="{StaticResource IconButtonStyle }"
+                                    Text="{StaticResource Search}" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

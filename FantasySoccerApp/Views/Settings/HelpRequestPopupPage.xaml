@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FantasySoccerApp.Views.Settings.HelpRequestPopupPage"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:graphics="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation DurationIn="400"
+                                   DurationOut="300"
+                                   EasingIn="SinOut"
+                                   EasingOut="SinIn"
+                                   HasBackgroundAnimation="True"
+                                   PositionIn="Center"
+                                   PositionOut="Center"
+                                   ScaleIn="1.2"
+                                   ScaleOut="0.8" />
+    </pages:PopupPage.Animation>
+    <pages:PopupPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style  TargetType="graphics:SfGradientView" >
+                <Setter Property="BackgroundBrush">
+                    <Setter.Value>
+                        <graphics:SfLinearGradientBrush>
+                            <graphics:SfLinearGradientBrush.GradientStops>
+                                <graphics:SfGradientStop Offset="0" Color="{DynamicResource AppBlueColor}"/>
+                                <graphics:SfGradientStop Offset="1" Color="{DynamicResource AppGreenColor}"/>
+                            </graphics:SfLinearGradientBrush.GradientStops>
+                        </graphics:SfLinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </pages:PopupPage.Resources>
+    <ScrollView>
+        <Frame Margin="15" Padding="0" CornerRadius="10" VerticalOptions="CenterAndExpand">
+            <StackLayout Orientation="Vertical" BackgroundColor="{DynamicResource Gray-White}">
+                <Grid ColumnSpacing="0" RowSpacing="0" Padding="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="100"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <graphics:SfGradientView Grid.Row="1" Grid.RowSpan="3" Grid.Column="1" Grid.ColumnSpan="3"/>
+
+                    <StackLayout Orientation="Vertical" Grid.Column="2" Grid.RowSpan="1" Grid.Row="1" VerticalOptions="CenterAndExpand">
+                        <Label
+                        FontFamily="{StaticResource Montserrat-SemiBold}"
+                        FontSize="14"
+                        Text="Question? Contact us."
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Start"
+                        TextColor="{DynamicResource Gray-White}" />
+                    </StackLayout>
+                </Grid>
+                <StackLayout Margin="5" Padding="0" Orientation="Vertical">
+                    <Label Text="Email" FontFamily="{StaticResource Montserrat-SemiBold}"
+                        FontSize="14"></Label>
+                    <Entry Text="{Binding Email}"
+                            FontFamily="{StaticResource Montserrat-SemiBold}"
+                            FontSize="14"
+                            IsReadOnly="True"
+                           BackgroundColor="{DynamicResource Gray-100}"></Entry>
+                    <Label Padding="0,10,0,0"
+                           Text="Message"
+                           FontFamily="{StaticResource Montserrat-SemiBold}"
+                           FontSize="14"></Label>
+                    <StackLayout BackgroundColor="{DynamicResource Gray-White}">
+                        <StackLayout BackgroundColor="{DynamicResource Gray-300}" Padding="1">
+                            <Editor Text="{Binding Message}"
+                            HeightRequest="100"
+                            FontFamily="{StaticResource Montserrat-SemiBold}"
+                            FontSize="14"/>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                <Grid ColumnSpacing="0" RowSpacing="0" Padding="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="1" Grid.ColumnSpan="1" BackgroundColor="{DynamicResource AppBlueColor}"
+                            FontSize="15"
+                            Text="Send"
+                            Margin="5,0,5,5"
+                            HorizontalOptions="FillAndExpand"
+                            Command="{Binding SubmitClickCommand}"
+                            TextColor="White" />
+                    <Button Grid.Column="2" Grid.ColumnSpan="1"
+                            FontSize="15"
+                            BorderColor="{DynamicResource AppGreenColor}"
+                            BorderWidth="2"
+                            Text="Close"
+                            HorizontalOptions="FillAndExpand"
+                            Margin="5,0,5,5"
+                            Command="{Binding CloseClickCommand}"
+                            TextColor="{DynamicResource AppGreenColor}" />
+                </Grid>
+            </StackLayout>
+        </Frame>
+
+    </ScrollView>
+</pages:PopupPage>

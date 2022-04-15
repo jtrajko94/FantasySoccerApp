@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             x:Class="FantasySoccerApp.Views.Individuals.AboutView"
+             xmlns:helper="clr-namespace:FantasySoccerApp.Helpers"
+             xmlns:control="clr-namespace:FantasySoccerApp.Controls">
+    <ContentView.Content>
+        <StackLayout Orientation="Vertical" VerticalOptions="Start" Padding="0">
+            <control:CustomShadowFrame
+                            Margin="10"
+                            Padding="0"
+                            BackgroundColor="{DynamicResource AppBlueColor}"
+                            BorderColor="{DynamicResource Gray-White}"
+                            CornerRadius="4"
+                            HasShadow="True"
+                            HeightRequest="70">
+                <Grid ColumnSpacing="0" RowSpacing="0" HorizontalOptions="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+
+                    <StackLayout Orientation="Horizontal">
+                        <!--  Club image  -->
+                        <border:SfBorder
+                            Grid.RowSpan="2"
+                            Margin="16"
+                            BorderWidth="0"
+                            CornerRadius="24"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center">
+                            <Image
+                        BackgroundColor="{DynamicResource Gray-200}"
+                        HeightRequest="40"
+                        WidthRequest="40" >
+                            </Image>
+                        </border:SfBorder>
+
+                        <StackLayout
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Padding="0"
+                            helper:RTLHelper.Margin="0,16,16,4"
+                            Orientation="Vertical"
+                            Spacing="0">
+                            <Label
+                                FontFamily="{StaticResource Montserrat-SemiBold}"
+                                FontSize="18"
+                                VerticalOptions="Center"
+                                HorizontalOptions="StartAndExpand"
+                                Text="{Binding TeamName}"
+                                TextColor="{DynamicResource Gray-White}" />
+                            <Label
+                            FontFamily="{StaticResource Montserrat-SemiBold}"
+                            FontSize="12"
+                            VerticalOptions="Center"
+                            HorizontalOptions="StartAndExpand"
+                            Text="{Binding TeamCountry}"
+                            TextColor="{DynamicResource Gray-White}" />
+                        </StackLayout>
+                    </StackLayout>
+                </Grid>
+            </control:CustomShadowFrame>
+
+            <control:CustomShadowFrame
+                            Margin="10"
+                            Padding="0"
+                            BackgroundColor="{DynamicResource AppBlueColor}"
+                            BorderColor="{DynamicResource Gray-White}"
+                            CornerRadius="4"
+                            HasShadow="True"
+                            HeightRequest="70">
+                <Grid ColumnSpacing="0" RowSpacing="0" HorizontalOptions="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+
+                    <StackLayout Orientation="Horizontal">
+                        <!--  International image  -->
+                        <border:SfBorder
+                            Grid.RowSpan="2"
+                            Margin="16"
+                            BorderWidth="0"
+                            CornerRadius="24"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center">
+                            <Image
+                        BackgroundColor="{DynamicResource Gray-200}"
+                        HeightRequest="40"
+                        WidthRequest="40" >
+                            </Image>
+                        </border:SfBorder>
+
+                        <StackLayout
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Padding="0"
+                            helper:RTLHelper.Margin="0,26,26,4"
+                            Orientation="Vertical"
+                            Spacing="0">
+                            <Label
+                                FontFamily="{StaticResource Montserrat-SemiBold}"
+                                FontSize="18"
+                                VerticalOptions="Center"
+                                HorizontalOptions="StartAndExpand"
+                                Text="{Binding InternationalTeam}"
+                                TextColor="{DynamicResource Gray-White}" />
+                        </StackLayout>
+                    </StackLayout>
+                </Grid>
+            </control:CustomShadowFrame>
+            <StackLayout
+                x:Name="playerInformationList"
+                VerticalOptions="Start"
+                Padding="16"
+                BindableLayout.ItemsSource="{Binding InformationEntries}"
+                Spacing="16">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal">
+                            <Label
+                                FontFamily="{StaticResource Montserrat-SemiBold}"
+                                FontSize="14"
+                                Padding="0,0,0,0"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Start"
+                                Text="{Binding InformationName}"
+                                TextColor="{DynamicResource AppBlueColor}" />
+                            <Label
+                                FontFamily="{StaticResource Montserrat-SemiBold}"
+                                FontSize="14"
+                                VerticalOptions="Center"
+                                HorizontalOptions="EndAndExpand"
+                                Text="{Binding InformationValueDescription}"
+                                TextColor="{DynamicResource AppBlueColor}" />
+                        </StackLayout>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+        </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

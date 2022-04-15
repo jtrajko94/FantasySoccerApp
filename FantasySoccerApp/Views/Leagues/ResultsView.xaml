@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FantasySoccerApp.Views.Leagues.ResultsView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <ListView
+            x:Name="dataTable"
+            ItemsSource="{Binding Results}"
+            SeparatorVisibility="None">
+            <ListView.Header>
+                    <Grid Grid.Row="0" HeightRequest="48" Margin="0,8,0,0" Padding="16,0,8,0" ColumnSpacing="0" BackgroundColor="{StaticResource Gray-100}">
+
+                        <Label Text="Pos" HorizontalOptions="Start"  FontSize="12" FontFamily="{StaticResource Montserrat-SemiBold}" 
+                                   TextColor="{DynamicResource Gray-800}" VerticalOptions="Center"/>
+
+                        <Label Grid.Column="1" HorizontalOptions="Start" Grid.ColumnSpan="2"  Text="Club"  FontSize="12" FontFamily="{StaticResource Montserrat-SemiBold}"                                                      
+                                   TextColor="{DynamicResource Gray-800}" VerticalOptions="Center"  />
+
+                        <Label  Grid.Column="2" HorizontalOptions="Center"  Text="Pl" FontSize="12" FontFamily="{StaticResource Montserrat-SemiBold}"                                 
+                                   TextColor="{DynamicResource Gray-800}" VerticalOptions="Center"/>
+
+                        <Label  Grid.Column="3" HorizontalOptions="Center"  Text="Gd"  FontSize="12" FontFamily="{StaticResource Montserrat-SemiBold}"                                    
+                                   TextColor="{DynamicResource Gray-800}" VerticalOptions="Center"/>
+
+                        <Label  Grid.Column="4" Grid.ColumnSpan="1" HorizontalOptions="Center"  Text="Pts"  FontSize="12" FontFamily="{StaticResource Montserrat-SemiBold}"                                
+                                   TextColor="{DynamicResource Gray-800}" VerticalOptions="Center"/>
+
+                    </Grid>
+            </ListView.Header>
+
+            <!--  List View for the table  -->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Margin="0" Spacing="0" >
+                            <Grid HeightRequest="48" Margin="16,0,8,0" ColumnSpacing="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="{OnIdiom Desktop=0.5*, Tablet=1*, Phone=0.8*}" />
+                                    <ColumnDefinition Width="{OnIdiom Desktop=2.5*, Tablet=1*, Phone=2*}" />
+                                    <ColumnDefinition Width="{OnIdiom Desktop=0.7*, Tablet=1*, Phone=0.8*}" />
+                                    <ColumnDefinition Width="{OnIdiom Desktop=0.7*, Tablet=1*, Phone=0.8*}" />
+                                    <ColumnDefinition Width="{OnIdiom Desktop=0.7*, Tablet=1*, Phone=*}" />
+                                    <ColumnDefinition Width="{OnIdiom Desktop=5*, Tablet=1*, Phone=*}" />
+                                </Grid.ColumnDefinitions>
+
+                                <!--  club name -->
+                                <Label Margin="6,0,0,0" Text="{Binding Position}"  FontSize="14" FontFamily="{StaticResource Montserrat-Medium}" 
+                                        TextColor="{DynamicResource Gray-900}" VerticalOptions="Center" HorizontalOptions="Start" />
+
+                                <Grid Grid.Column="1" ColumnSpacing="8">
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.2*"/>
+                                        <ColumnDefinition Width="{OnIdiom Desktop=2.3*, Tablet=2.3*, Phone=1.8*}" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <!--  Club images -->
+                                    <Image  Grid.Column="0" HeightRequest="20" 
+                                                   VerticalOptions="Center" HorizontalOptions="Start" >
+                                        <Image.Source>
+                                            <UriImageSource
+                                                       CacheValidity="14"
+                                                       CachingEnabled="true" />
+                                        </Image.Source>
+
+                                    </Image>
+
+                                    <Label Margin="0" Grid.Column="1"  Text="{Binding TeamName}" FontSize="10" FontFamily="{StaticResource Montserrat-Medium}" 
+                                        TextColor="{DynamicResource Gray-900}" VerticalOptions="Center" HorizontalOptions="Start" />
+
+                                </Grid>
+                                <!--  Total played -->
+                                <Label  Grid.Column="2" Text="10" FontFamily="{StaticResource Montserrat-Medium}" 
+                                        TextColor="{DynamicResource Gray-900}" VerticalOptions="Center" HorizontalOptions="Start" />
+
+                                <!--  Gold points for the club -->
+                                <Label  Grid.Column="3" Text="{Binding GoalDifferential}"  FontSize="14" FontFamily="{StaticResource Montserrat-Medium}" 
+                                        TextColor="{DynamicResource Gray-900}" VerticalOptions="Center" HorizontalOptions="Start" />
+
+                                <!--  Total points for the club -->
+                                <Label  Grid.Column="4" Text="{Binding Points}"  FontSize="14" FontFamily="{StaticResource Montserrat-Medium}" 
+                                        TextColor="{DynamicResource Gray-900}" VerticalOptions="Center" HorizontalOptions="Start" />
+
+                                <!--  Ratings for 5 matches -->
+                                <StackLayout  x:Name="stackLayout" Grid.Column="5" VerticalOptions="Center" HorizontalOptions="Start" 
+                                                      Orientation="Horizontal" Spacing="4"
+                                                      BindableLayout.ItemsSource="{Binding MatchResults}" WidthRequest="8" 
+                                                      HeightRequest="8">
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                            <BoxView  BackgroundColor="{Binding }" WidthRequest="8" 
+                                                      HeightRequest="8"  CornerRadius="16" />
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                </StackLayout>
+                            </Grid>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:control="clr-namespace:FantasySoccerApp.Controls"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:helper="clr-namespace:FantasySoccerApp.Helpers"
+             x:Class="FantasySoccerApp.Views.Fixtures.OddsView">
+    <ContentView.Content>
+        <StackLayout
+                x:Name="transactionList"
+                Padding="16"
+                BindableLayout.ItemsSource="{Binding OddsEntries}"
+                Spacing="16">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <control:CustomShadowFrame
+                            Margin="0"
+                            Padding="0"
+                            BackgroundColor="{DynamicResource AppBlueColor}"
+                            BorderColor="{DynamicResource Gray-White}"
+                            CornerRadius="4"
+                            HasShadow="True"
+                            HeightRequest="70">
+
+                        <Grid ColumnSpacing="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <!--  Profile image  -->
+                            <border:SfBorder
+                                    Grid.RowSpan="2"
+                                    Margin="16"
+                                    BorderWidth="0"
+                                    CornerRadius="24"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center">
+                                <Image
+                                        BackgroundColor="{DynamicResource Gray-200}"
+                                        HeightRequest="40"
+                                        WidthRequest="40" >
+                                </Image>
+                            </border:SfBorder>
+
+                            <StackLayout
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    Padding="0"
+                                    helper:RTLHelper.Margin="0,16,16,4"
+                                    Orientation="Horizontal"
+                                    Spacing="0">
+                                <Label
+                                        FontFamily="{StaticResource Montserrat-SemiBold}"
+                                        FontSize="14"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="StartAndExpand"
+                                        Text="{Binding SourceName}"
+                                        TextColor="{DynamicResource Gray-White}" />
+
+                                <StackLayout Orientation="Horizontal">
+                                    <StackLayout Orientation="Vertical">
+                                        <Label
+                                            FontFamily="{StaticResource Montserrat-SemiBold}"
+                                            FontSize="14"
+                                            HorizontalOptions="CenterAndExpand"
+                                            Text="{Binding HomeResult}"
+                                            TextColor="{DynamicResource Gray-White}" />
+                                        <Label
+                                            FontFamily="{StaticResource Montserrat-SemiBold}"
+                                            FontSize="10"
+                                            HorizontalOptions="Center"
+                                            Text="Home"
+                                            TextColor="{DynamicResource Gray-White}" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical">
+                                        <Label
+                                            FontFamily="{StaticResource Montserrat-SemiBold}"
+                                            FontSize="14"
+                                            HorizontalOptions="CenterAndExpand"
+                                            Text="{Binding DrawResult}"
+                                            TextColor="{DynamicResource Gray-White}" />
+                                        <Label
+                                            FontFamily="{StaticResource Montserrat-SemiBold}"
+                                            FontSize="10"
+                                            HorizontalOptions="Center"
+                                            Text="Draw"
+                                            TextColor="{DynamicResource Gray-White}" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical">
+                                        <Label
+                                            FontFamily="{StaticResource Montserrat-SemiBold}"
+                                            FontSize="14"
+                                            HorizontalOptions="CenterAndExpand"
+                                            Text="{Binding AwayResult}"
+                                            TextColor="{DynamicResource Gray-White}" />
+                                        <Label
+                                            FontFamily="{StaticResource Montserrat-SemiBold}"
+                                            FontSize="10"
+                                            HorizontalOptions="Center"
+                                            Text="Away"
+                                            TextColor="{DynamicResource Gray-White}" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+
+                        </Grid>
+                    </control:CustomShadowFrame>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FantasySoccerApp.Views.Fixtures.PlayerPerformancePopupPage"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:graphics="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation DurationIn="400"
+                                   DurationOut="300"
+                                   EasingIn="SinOut"
+                                   EasingOut="SinIn"
+                                   HasBackgroundAnimation="True"
+                                   PositionIn="Center"
+                                   PositionOut="Center"
+                                   ScaleIn="1.2"
+                                   ScaleOut="0.8" />
+    </pages:PopupPage.Animation>
+    <pages:PopupPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style  TargetType="graphics:SfGradientView" >
+                <Setter Property="BackgroundBrush">
+                    <Setter.Value>
+                        <graphics:SfLinearGradientBrush>
+                            <graphics:SfLinearGradientBrush.GradientStops>
+                                <graphics:SfGradientStop Offset="0" Color="{DynamicResource AppBlueColor}"/>
+                                <graphics:SfGradientStop Offset="1" Color="{DynamicResource AppGreenColor}"/>
+                            </graphics:SfLinearGradientBrush.GradientStops>
+                        </graphics:SfLinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </pages:PopupPage.Resources>
+    <ScrollView>
+        <Frame Margin="15" Padding="0" CornerRadius="10" VerticalOptions="CenterAndExpand">
+            <StackLayout Orientation="Vertical" BackgroundColor="{DynamicResource Gray-White}">
+                <Grid ColumnSpacing="0" RowSpacing="0" Padding="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="130"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <graphics:SfGradientView Grid.Row="1" Grid.RowSpan="3" Grid.Column="1" Grid.ColumnSpan="3"/>
+
+                    <StackLayout Orientation="Vertical" Grid.Column="1" Grid.RowSpan="1" Grid.Row="1" VerticalOptions="CenterAndExpand">
+                        <!--  Home Team Logo -->
+                        <border:SfBorder
+                        BorderWidth="0"
+                        HorizontalOptions="Center"
+                        CornerRadius="24">
+                            <Image
+                            BackgroundColor="{DynamicResource Gray-400}"
+                            HeightRequest="40"
+                            WidthRequest="40" >
+                            </Image>
+                        </border:SfBorder>
+                        <Label
+                        FontFamily="{StaticResource Montserrat-SemiBold}"
+                        FontSize="14"
+                        Text="{Binding HomeTeamName}"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Start"
+                        TextColor="{DynamicResource Gray-White}" />
+                    </StackLayout>
+                    <StackLayout
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        Grid.RowSpan="1"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Orientation="Vertical"
+                        Spacing="0">
+                        <Label
+                            FontFamily="{StaticResource Montserrat-SemiBold}"
+                            FontSize="10"
+                            Text="{Binding DateTimeLabel}"
+                            VerticalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            HorizontalOptions="Center"
+                            TextColor="{DynamicResource Gray-White}">
+                        </Label>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+                            <Label
+                            FontFamily="{StaticResource Montserrat-SemiBold}"
+                            FontSize="18"
+                            Text="{Binding HomeScoreLabel}"
+                            Margin="5"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            TextColor="{DynamicResource Gray-White}" />
+                            <Label
+                            FontFamily="{StaticResource Montserrat-SemiBold}"
+                            FontSize="12"
+                            Text="v"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            TextColor="{DynamicResource Gray-White}" />
+                            <Label
+                            Margin="5"
+                            FontFamily="{StaticResource Montserrat-SemiBold}"
+                            FontSize="18"
+                            Text="{Binding AwayScoreLabel}"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            TextColor="{DynamicResource Gray-White}" />
+                        </StackLayout>
+                        <Label
+                            FontFamily="{StaticResource Montserrat-SemiBold}"
+                            FontSize="10"
+                            Text="{Binding LeagueLabel}"
+                            VerticalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            HorizontalOptions="Center"
+                            TextColor="{DynamicResource Gray-White}">
+                        </Label>
+
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" Grid.Row="1" Grid.RowSpan="1" Grid.Column="3" VerticalOptions="Center">
+                        <!--  Away Team Logo -->
+                        <border:SfBorder
+                        BorderWidth="0"
+                        HorizontalOptions="Center"
+                        CornerRadius="24">
+                            <Image
+                            BackgroundColor="{DynamicResource Gray-400}"
+                            HeightRequest="40"
+                            WidthRequest="40" >
+                            </Image>
+                        </border:SfBorder>
+                        <Label
+                        FontFamily="{StaticResource Montserrat-SemiBold}"
+                        FontSize="14"
+                        Text="Barcelona"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Start"
+                        TextColor="{DynamicResource Gray-White}" />
+                    </StackLayout>
+                </Grid>
+                <StackLayout Orientation="Vertical" HorizontalOptions="Center">
+                    <!--  Country Logo -->
+                    <border:SfBorder
+                        BorderWidth="0"
+                        HorizontalOptions="Center"
+                        CornerRadius="24">
+                        <Image
+                            BackgroundColor="{DynamicResource Gray-400}"
+                            HeightRequest="50"
+                            WidthRequest="50" >
+                        </Image>
+                    </border:SfBorder>
+                    <Label FontFamily="{StaticResource Montserrat-SemiBold}"
+                        FontSize="14"
+                        Text="Luka Modric"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Start"
+                        TextColor="{DynamicResource AppBlueColor}" />
+                    <Label FontFamily="{StaticResource Montserrat-SemiBold}"
+                        FontSize="10"
+                        Text="Real Madrid"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Start"
+                        TextColor="{DynamicResource AppBlueColor}" />
+                </StackLayout>
+                <!--Stats List-->
+                <StackLayout
+                x:Name="playerStatisticList"
+                Padding="16"
+                BindableLayout.ItemsSource="{Binding PlayerStatisticEntries}"
+                Spacing="16">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Horizontal">
+                                <Label
+                                        FontFamily="{StaticResource Montserrat-SemiBold}"
+                                        FontSize="14"
+                                        Padding="0,0,0,0"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Start"
+                                        Text="{Binding StatisticName}"
+                                        TextColor="{DynamicResource AppBlueColor}" />
+                                <Label
+                                        FontFamily="{StaticResource Montserrat-SemiBold}"
+                                        FontSize="14"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="EndAndExpand"
+                                        Text="{Binding StatisticValueDescription}"
+                                        TextColor="{DynamicResource AppBlueColor}" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <Button BackgroundColor="{DynamicResource AppBlueColor}"
+                    FontSize="15"
+                    Text="Player Profile"
+                    Margin="5,0,5,0"
+                    Command="{Binding PlayerProfileClickCommand}"
+                    TextColor="White" />
+                    <Button BackgroundColor="{DynamicResource AppGreenColor}"
+                    FontSize="15"
+                    Text="Close"
+                    Margin="5,0,5,5"
+                    Command="{Binding CloseClickCommand}"
+                    TextColor="White" />
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+
+    </ScrollView>
+</pages:PopupPage>

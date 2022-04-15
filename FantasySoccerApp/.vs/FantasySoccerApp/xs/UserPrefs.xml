@@ -1,0 +1,26 @@
+﻿<Properties StartupConfiguration="{0A4AADFA-6426-41A9-AA2C-B0D1862180FB}|Default">
+  <MonoDevelop.Ide.ItemProperties.FantasySoccerApp.Android PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../../../../../../../Library/Frameworks/Xamarin.iOS.framework/Versions/13.18.2.1/lib/msbuild/iOS/Xamarin.iOS.Common.targets">
+    <Files>
+      <File FileName="../../../../../../../../Library/Frameworks/Mono.framework/External/xbuild/Xamarin/iOS/Xamarin.iOS.Common.targets" Line="1383" Column="3" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="FantasySoccerApp" expanded="True" selected="True">
+            <Node name="FantasySoccerApp" expanded="True" />
+            <Node name="FantasySoccerApp.MobileAppService" expanded="True" />
+            <Node name="FantasySoccerApp.UITests" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.FantasySoccerApp.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.00008020-001E78681A82002E" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

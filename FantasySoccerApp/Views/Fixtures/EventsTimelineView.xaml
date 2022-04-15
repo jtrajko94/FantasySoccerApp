@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:FantasySoccerApp.Converters" xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms" x:Class="FantasySoccerApp.Views.Fixtures.EventsTimelineView">
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <ListView
+    x:Name="timelineListView"
+    ItemTapped="timelineListView_ItemTapped"
+    ItemsSource="{Binding .}"
+    RowHeight="50"
+    SeparatorVisibility="None">
+
+        <ListView.Header>
+            <StackLayout Padding="20,0,0,30">
+            </StackLayout>
+        </ListView.Header>
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid ColumnSpacing="0" RowSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Label HorizontalOptions="Center" Style="{StaticResource TimelineEventMinuteLabel}" IsVisible="{Binding MatchEvent}" Text="{Binding Minute}" />
+
+                        <Label
+              Grid.Column="2"
+              Margin="20,0"
+              Style="{StaticResource TimelineEventPlayerNameLabel}"
+              Text="{Binding PlayerName}" />
+
+                        <Label
+              Grid.Row="1"
+              Grid.Column="2"
+              Margin="20,0"
+              FontSize="Micro"
+              Style="{StaticResource TimelineEventTypeLabel}"
+              Text="{Binding EventType}" />
+
+                        <BoxView
+              Grid.RowSpan="2"
+              Grid.Column="1"
+              BackgroundColor="{DynamicResource AppBlueColor}"
+              HorizontalOptions="Center"
+              IsVisible="{Binding MatchEvent}"
+              VerticalOptions="Fill"
+              WidthRequest="3" />
+
+                        <border:SfBorder
+                                    Grid.Column="1"
+                                    BorderWidth="0"
+                                    CornerRadius="24"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center">
+                            <Image
+                                        BackgroundColor="{DynamicResource AppBlueColor}"
+                                        HeightRequest="24"
+                                        WidthRequest="24" >
+                            </Image>
+                        </border:SfBorder>
+
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentView>

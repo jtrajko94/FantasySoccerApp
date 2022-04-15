@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:localsettings="clr-namespace:FantasySoccerApp.Views.Settings"
+             xmlns:localdrafts="clr-namespace:FantasySoccerApp.Views.Drafts"
+             xmlns:localfixtures="clr-namespace:FantasySoccerApp.Views.Fixtures"
+             xmlns:localhome="clr-namespace:FantasySoccerApp.Views.Home"
+             x:Class="FantasySoccerApp.Views.Navigation.BottomNavigationPage"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             android:TabbedPage.ToolbarPlacement="Bottom"
+             android:TabbedPage.BarSelectedItemColor="{DynamicResource AppGreenColor}"
+             android:TabbedPage.BarItemColor="{DynamicResource Gray-600}"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="true"
+             BarBackgroundColor="{DynamicResource Gray-White}"
+             NavigationPage.HasNavigationBar="False">
+    <TabbedPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </TabbedPage.Resources>
+    <localhome:HomePage Title="Home">
+        <localhome:HomePage.IconImageSource>
+            <FontImageSource FontFamily="{StaticResource FontIcons}"
+                                 Glyph="{StaticResource SettingsIcon}"
+                                 Size="14"/>
+        </localhome:HomePage.IconImageSource>
+    </localhome:HomePage>
+    <localfixtures:FixturesPage Title="Fixtures">
+        <localfixtures:FixturesPage.IconImageSource>
+            <FontImageSource FontFamily="{StaticResource FontIcons}"
+                                 Glyph="{StaticResource SettingsIcon}"
+                                 Size="14"/>
+        </localfixtures:FixturesPage.IconImageSource>
+    </localfixtures:FixturesPage>
+    <localdrafts:DraftsPage Title="Drafts">
+        <localdrafts:DraftsPage.IconImageSource>
+            <FontImageSource FontFamily="{StaticResource FontIcons}"
+                                 Glyph="{StaticResource SettingsIcon}"
+                                 Size="14"/>
+        </localdrafts:DraftsPage.IconImageSource>
+    </localdrafts:DraftsPage>
+    <localsettings:SettingsPage Title="Settings">
+        <localsettings:SettingsPage.IconImageSource>
+            <FontImageSource FontFamily="{StaticResource FontIcons}"
+                                 Glyph="{StaticResource SettingsIcon}"
+                                 Size="14"/>
+        </localsettings:SettingsPage.IconImageSource>
+    </localsettings:SettingsPage>
+</TabbedPage>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FantasySoccerApp.Views.Individuals.SeasonStatisticsView">
+    <ContentView.Content>
+        <!--Stats List-->
+        <StackLayout
+                x:Name="seasonStatisticList"
+                Padding="16"
+                BindableLayout.ItemsSource="{Binding SeasonStatisticEntries}"
+                Spacing="16">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal">
+                        <Label
+                            FontFamily="{StaticResource Montserrat-SemiBold}"
+                            FontSize="14"
+                            Padding="0,0,0,0"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Start"
+                            Text="{Binding StatisticName}"
+                            TextColor="{DynamicResource AppBlueColor}" />
+                        <Label
+                            FontFamily="{StaticResource Montserrat-SemiBold}"
+                            FontSize="14"
+                            VerticalOptions="Center"
+                            HorizontalOptions="EndAndExpand"
+                            Text="{Binding StatisticValueDescription}"
+                            TextColor="{DynamicResource AppBlueColor}" />
+                    </StackLayout>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

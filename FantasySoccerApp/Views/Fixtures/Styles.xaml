@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    x:Class="FantasySoccerApp.Views.Fixtures.Styles"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms">
+
+    <Color x:Key="Transparent">Transparent</Color>
+    <x:String x:Key="Calendar">&#xe742;</x:String>
+
+    <!--  Common style for icon buttons  -->
+    <Style x:Key="IconButtonStyle" TargetType="buttons:SfButton">
+        <Setter Property="TextColor" Value="{DynamicResource Gray-600}" />
+        <Setter Property="BackgroundColor" Value="{StaticResource Transparent}" />
+        <Setter Property="FontFamily" Value="{StaticResource FontIcons}" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+        <Setter Property="VerticalTextAlignment" Value="Center" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="HeightRequest" Value="40" />
+        <Setter Property="WidthRequest" Value="40" />
+    </Style>
+
+    <!--  Common style for icon buttons  -->
+    <Style x:Key="IconButton" TargetType="Label">
+        <Setter Property="TextColor" Value="{DynamicResource Gray-600}" />
+        <Setter Property="BackgroundColor" Value="{StaticResource Transparent}" />
+        <Setter Property="FontFamily" Value="{StaticResource FontIcons}" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+        <Setter Property="VerticalTextAlignment" Value="Center" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+
+    <!--Timeline-->
+    <Style x:Key="SubHeaderLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="{DynamicResource AppBlueColor}" />
+        <Setter Property="FontFamily" Value="{StaticResource Montserrat-Medium}" />
+    </Style>
+
+    <Style x:Key="TimelineEventMinuteLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="{DynamicResource AppBlueColor}" />
+        <Setter Property="FontFamily" Value="{StaticResource Montserrat-Medium}" />
+    </Style>
+
+    <Style x:Key="TimelineEventPlayerNameLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="{DynamicResource AppBlueColor}" />
+        <Setter Property="FontFamily" Value="{StaticResource Montserrat-Medium}" />
+    </Style>
+
+    <Style x:Key="TimelineEventTypeLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="{DynamicResource AppBlueColor}" />
+        <Setter Property="FontFamily" Value="{StaticResource Montserrat-Medium}" />
+    </Style>
+
+</ResourceDictionary>

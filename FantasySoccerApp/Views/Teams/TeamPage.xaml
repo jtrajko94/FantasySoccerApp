@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:graphics="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
+             xmlns:local="clr-namespace:FantasySoccerApp.ViewModels.Teams"
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             xmlns:behaviors="clr-namespace:FantasySoccerApp.Behaviors"
+             x:Class="FantasySoccerApp.Views.Teams.TeamPage"
+             xmlns:partials="clr-namespace:FantasySoccerApp.Views.Teams"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.BindingContext>
+        <local:TeamViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style  TargetType="graphics:SfGradientView" >
+                <Setter Property="BackgroundBrush">
+                    <Setter.Value>
+                        <graphics:SfLinearGradientBrush>
+                            <graphics:SfLinearGradientBrush.GradientStops>
+                                <graphics:SfGradientStop Offset="0" Color="{DynamicResource AppBlueColor}"/>
+                                <graphics:SfGradientStop Offset="1" Color="{DynamicResource AppGreenColor}"/>
+                            </graphics:SfLinearGradientBrush.GradientStops>
+                        </graphics:SfLinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand">
+            <Grid ColumnSpacing="0" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="150"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <graphics:SfGradientView Grid.Row="1" Grid.RowSpan="3" Grid.Column="1" Grid.ColumnSpan="3"/>
+
+                <StackLayout Orientation="Vertical" Grid.Column="1" Grid.RowSpan="1" Grid.ColumnSpan="3" Grid.Row="1" VerticalOptions="CenterAndExpand">
+                    <border:SfBorder
+                        BorderWidth="0"
+                        HorizontalOptions="Center"
+                        CornerRadius="24">
+                        <Image
+                            BackgroundColor="{DynamicResource Gray-400}"
+                            HeightRequest="50"
+                            WidthRequest="50" >
+                        </Image>
+                    </border:SfBorder>
+                    <Label
+                        FontFamily="{StaticResource Montserrat-SemiBold}"
+                        FontSize="18"
+                        Text="{Binding Name}"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Start"
+                        TextColor="{DynamicResource Gray-White}" />
+                    <combobox:SfComboBox
+                        x:Name="comboBox"
+                        Margin="5"
+                        TextSize="14"
+                        TextColor="{DynamicResource AppBlueColor}"
+                        SelectedValue="{Binding SelectedSeason}"
+                        WidthRequest="125"
+                        DropDownWidth="125"
+                        BackgroundColor="{DynamicResource Gray-White}"
+                        BorderColor="Transparent"
+                        HorizontalOptions="Center"
+                        MaximumDropDownHeight="200"
+                        IsEditableMode="false"
+                        DataSource="{Binding SeasonListItems}"
+                        DisplayMemberPath="Name">
+
+                        <combobox:SfComboBox.Behaviors>
+                            <behaviors:SfComboBoxDropDownBehavior Command="{Binding SeasonSelectedCommand}" />
+                        </combobox:SfComboBox.Behaviors>
+
+                        <combobox:SfComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Name}" FontFamily="{StaticResource Montserrat-SemiBold}"
+                                        FontSize="14"
+                                        Padding="5"
+                                        HorizontalTextAlignment="Center"
+                                        VerticalOptions="Center"
+                                        TextColor="{DynamicResource AppBlueColor}" />
+                                </StackLayout>
+                            </DataTemplate>
+                        </combobox:SfComboBox.ItemTemplate>
+                        <combobox:SfComboBox.DropDownButtonSettings>
+                            <combobox:DropDownButtonSettings Width="40" Height="40" FontColor="{DynamicResource Gray-White}"/>
+                        </combobox:SfComboBox.DropDownButtonSettings>
+                    </combobox:SfComboBox>
+                </StackLayout>
+            </Grid>
+            <tabView:SfTabView BackgroundColor="{DynamicResource Gray-White}" VisibleHeaderCount="4">
+                <tabView:SfTabView.SelectionIndicatorSettings>
+                    <tabView:SelectionIndicatorSettings StrokeThickness="3" Color="{DynamicResource AppGreenColor}" />
+                </tabView:SfTabView.SelectionIndicatorSettings>
+                <tabView:SfTabItem
+                    Title="Season"
+                    SelectionColor="{DynamicResource AppGreenColor}"
+                    TitleFontColor="{DynamicResource Gray-700}"
+                    TitleFontFamily="{StaticResource Montserrat-Medium}"
+                    TitleFontSize="14">
+                    <tabView:SfTabItem.Content>
+                        <partials:AboutView />
+                    </tabView:SfTabItem.Content>
+                </tabView:SfTabItem>
+
+                <tabView:SfTabItem
+                    Title="Players"
+                    SelectionColor="{DynamicResource AppGreenColor}"
+                    TitleFontColor="{DynamicResource Gray-700}"
+                    TitleFontFamily="{StaticResource Montserrat-Medium}"
+                    TitleFontSize="14">
+                    <tabView:SfTabItem.Content>
+                       <partials:SeasonPlayersView />
+                    </tabView:SfTabItem.Content>
+                </tabView:SfTabItem>
+
+                <tabView:SfTabItem
+                    Title="Fixtures"
+                    SelectionColor="{DynamicResource AppGreenColor}"
+                    TitleFontColor="{DynamicResource Gray-700}"
+                    TitleFontFamily="{StaticResource Montserrat-Medium}"
+                    TitleFontSize="14">
+                    <tabView:SfTabItem.Content>
+                        <partials:SeasonFixturesView />
+                    </tabView:SfTabItem.Content>
+                </tabView:SfTabItem>
+
+                <tabView:SfTabItem
+                    Title="Statistics"
+                    SelectionColor="{DynamicResource AppGreenColor}"
+                    TitleFontColor="{DynamicResource Gray-700}"
+                    TitleFontFamily="{StaticResource Montserrat-Medium}"
+                    TitleFontSize="14">
+                    <tabView:SfTabItem.Content>
+                        <partials:SeasonStatisticsView />
+                    </tabView:SfTabItem.Content>
+                </tabView:SfTabItem>
+            </tabView:SfTabView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

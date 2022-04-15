@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "dgSpecHash": "f65169+TaCy3JEanZWkfIp0//gFLhfnWKBjK79hU+lWY10xIl5cN8WopC6m2CUrbkfI8Y/0i3r9hJ8X3OOkQlA==",
+  "success": true,
+  "projectFilePath": "/Users/jeruntrajko/Desktop/InternalProjects/SoccerApp/fixtures/FantasySoccerApp/FantasySoccerApp.iOS/FantasySoccerApp.iOS.csproj",
+  "expectedPackageFiles": [
+    "/Users/jeruntrajko/.nuget/packages/morelinq/3.3.2/morelinq.3.3.2.nupkg.sha512",
+    "/Users/jeruntrajko/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512",
+    "/Users/jeruntrajko/.nuget/packages/refractored.mvvmhelpers/1.3.0/refractored.mvvmhelpers.1.3.0.nupkg.sha512",
+    "/Users/jeruntrajko/.nuget/packages/restsharp/106.11.4/restsharp.106.11.4.nupkg.sha512",
+    "/Users/jeruntrajko/.nuget/packages/rg.plugins.popup/2.0.0.2/rg.plugins.popup.2.0.0.2.nupkg.sha512",
+    "/Users/jeruntrajko/.nuget/packages/syncfusion.licensing/18.1.0.48/syncfusion.licensing.18.1.0.48.nupkg.sha512",
+    "/Users/jeruntrajko/.nuget/packages/syncfusion.xamarin.buttons/18.1.0.46/syncfusion.xamarin.buttons.18.1.0.46.nupkg.sha512",
+    "/Users/jeruntrajko/.nuget/packages/syncfusion.xamarin.cards/18.1.0.46/syncfusion.xamarin.cards.18.1.0.46.nupkg.sha512",
+    "/Users/jeruntrajko/.nuget/packages/syncfusion.xamarin.core/18.1.0.48/syncfusion.xamarin.core.18.1.0.48.nupkg.sha512",
+    "/Users/jeruntrajko/.nuget/packages/syncfusion.xamarin.datasource/18.1.0.46/syncfusion.xamarin.datasource.18.1.0.46.nupkg.sha512",
+    "/Users/jeruntrajko/.nuget/packages/syncfusion.xamarin.gridcommon/18.1.0.46/syncfusion.xamarin.gridcommon.18.1.0.46.nupkg.sha512",
+    "/Users/jeruntrajko/.nuget/packages/syncfusion.xamarin.sfcalendar/18.1.0.46/syncfusion.xamarin.sfcalendar.18.1.0.46.nupkg.sha512",
+    "/Users/jeruntrajko/.nuget/packages/syncfusion.xamarin.sfchart/18.1.0.48/syncfusion.xamarin.sfchart.18.1.0.48.nupkg.sha512",
+    "/Users/jeruntrajko/.nuget/packages/syncfusion.xamarin.sfcombobox/18.1.0.48/syncfusion.xamarin.sfcombobox.18.1.0.48.nupkg.sha512",
+    "/Users/jeruntrajko/.nuget/packages/syncfusion.xamarin.sflistview/18.1.0.46/syncfusion.xamarin.sflistview.18.1.0.46.nupkg.sha512",
+    "/Users/jeruntrajko/.nuget/packages/syncfusion.xamarin.sftabview/18.1.0.46/syncfusion.xamarin.sftabview.18.1.0.46.nupkg.sha512",
+    "/Users/jeruntrajko/.nuget/packages/xam.plugins.settings/3.1.1/xam.plugins.settings.3.1.1.nupkg.sha512",
+    "/Users/jeruntrajko/.nuget/packages/xamarin.essentials/1.5.3.1/xamarin.essentials.1.5.3.1.nupkg.sha512",
+    "/Users/jeruntrajko/.nuget/packages/xamarin.forms/4.6.0.726/xamarin.forms.4.6.0.726.nupkg.sha512",
+    "/Users/jeruntrajko/.nuget/packages/xamarin.forms.extended.infinitescrolling/1.0.0-preview2/xamarin.forms.extended.infinitescrolling.1.0.0-preview2.nupkg.sha512",
+    "/Users/jeruntrajko/.nuget/packages/xamarin.testcloud.agent/0.21.9/xamarin.testcloud.agent.0.21.9.nupkg.sha512"
+  ],
+  "logs": []
+}

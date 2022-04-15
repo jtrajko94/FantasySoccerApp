@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FantasySoccerApp.Views.Settings.PrivacyPolicyPopupPage"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:graphics="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation DurationIn="400"
+                                   DurationOut="300"
+                                   EasingIn="SinOut"
+                                   EasingOut="SinIn"
+                                   HasBackgroundAnimation="True"
+                                   PositionIn="Center"
+                                   PositionOut="Center"
+                                   ScaleIn="1.2"
+                                   ScaleOut="0.8" />
+    </pages:PopupPage.Animation>
+    <pages:PopupPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style  TargetType="graphics:SfGradientView" >
+                <Setter Property="BackgroundBrush">
+                    <Setter.Value>
+                        <graphics:SfLinearGradientBrush>
+                            <graphics:SfLinearGradientBrush.GradientStops>
+                                <graphics:SfGradientStop Offset="0" Color="{DynamicResource AppBlueColor}"/>
+                                <graphics:SfGradientStop Offset="1" Color="{DynamicResource AppGreenColor}"/>
+                            </graphics:SfLinearGradientBrush.GradientStops>
+                        </graphics:SfLinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </pages:PopupPage.Resources>
+    <ScrollView>
+        <Frame Margin="15" Padding="0" CornerRadius="10" VerticalOptions="CenterAndExpand">
+            <StackLayout Orientation="Vertical" BackgroundColor="{DynamicResource Gray-White}">
+                <Grid ColumnSpacing="0" RowSpacing="0" Padding="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="70"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <graphics:SfGradientView Grid.Row="1" Grid.RowSpan="3" Grid.Column="1" Grid.ColumnSpan="3"/>
+
+                    <StackLayout Orientation="Vertical" Grid.Column="2" Grid.RowSpan="1" Grid.Row="1" VerticalOptions="CenterAndExpand">
+                        <Label
+                        FontFamily="{StaticResource Montserrat-SemiBold}"
+                        FontSize="14"
+                        Text="Privacy Policy"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Start"
+                        TextColor="{DynamicResource Gray-White}" />
+                    </StackLayout>
+                </Grid>
+                <StackLayout Orientation="Vertical" Margin="5">
+                    <Label Padding="0,5,0,10" Grid.Column="1" FontFamily="{StaticResource Montserrat-SemiBold}"
+                        FontSize="10" Grid.ColumnSpan="3" Grid.Row="4">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ullamcorper dignissim cras tincidunt lobortis feugiat vivamus. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam. Nunc pulvinar sapien et ligula ullamcorper malesuada. Urna molestie at elementum eu facilisis sed odio. Magna fermentum iaculis eu non. Consectetur libero id faucibus nisl tincidunt eget. Lobortis feugiat vivamus at augue eget arcu. Tellus orci ac auctor augue mauris augue neque gravida in. Vitae aliquet nec ullamcorper sit amet risus nullam eget. Cras sed felis eget velit. Ipsum consequat nisl vel pretium lectus quam id leo. Dapibus ultrices in iaculis nunc. Ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus. Vitae congue eu consequat ac felis donec et odio pellentesque. Nullam vehicula ipsum a arcu cursus vitae congue. Eu augue ut lectus
+                    </Label>
+                    <Button Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="5"
+                            FontSize="15"
+                            BorderWidth="2"
+                            Text="Close"
+                            HorizontalOptions="FillAndExpand"
+                            Margin="5,0,5,5"
+                            Command="{Binding CloseClickCommand}"
+                            BackgroundColor="{DynamicResource AppBlueColor}"
+                            TextColor="{DynamicResource Gray-White}" />
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+
+    </ScrollView>
+</pages:PopupPage>

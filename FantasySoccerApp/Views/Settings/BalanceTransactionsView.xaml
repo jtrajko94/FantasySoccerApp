@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             x:Class="FantasySoccerApp.Views.Settings.BalanceTransactionsView">
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <ListView
+    x:Name="timelineListView"
+    VerticalOptions="StartAndExpand"
+    ItemTapped="timelineListView_ItemTapped"
+    ItemsSource="{Binding .}"
+    RowHeight="80"
+    HasUnevenRows="True"
+    SeparatorVisibility="None">
+
+        <ListView.Header>
+            <StackLayout Padding="20,0,0,30">
+            </StackLayout>
+        </ListView.Header>
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid ColumnSpacing="0" RowSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Label HorizontalOptions="Center" Style="{StaticResource TimelineTransactionAmountLabel}" Text="{Binding Amount,StringFormat='${0:F2}'}" TextColor="{Binding Color}" />
+
+                        <Label
+                          Grid.Column="2"
+                          Margin="20,0"
+                          FontSize="Micro"
+                          Style="{StaticResource TimelineTransactionDateLabel}"
+                          Text="{Binding Date}" />
+
+                        <Label
+              Grid.Row="1"
+              Grid.Column="2"
+              Margin="20,0"
+              FontSize="Micro"
+              Style="{StaticResource TimelineTransactionDescriptionLabel}"
+              Text="{Binding Description}" />
+
+                        <BoxView
+              Grid.RowSpan="2"
+              Grid.Column="1"
+              BackgroundColor="{DynamicResource AppBlueColor}"
+              HorizontalOptions="Center"
+              VerticalOptions="Fill"
+              WidthRequest="3" />
+
+                        <border:SfBorder
+                                    Grid.Column="1"
+                                    BorderWidth="3"
+                                    CornerRadius="24"
+                                    BorderColor="{Binding Color}"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center">
+                            <Image
+                                        BackgroundColor="{DynamicResource Gray-White}"
+                                        HeightRequest="24"
+                                        WidthRequest="24" >
+                            </Image>
+                        </border:SfBorder>
+
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentView>
